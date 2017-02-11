@@ -1,13 +1,18 @@
 class BooksController < ApplicationController
 
-def index
-  @books = Book.all
+  def index
+    @books = Book.all
 
-  respond_to do |format|
-    format.html
-    format.text
+    respond_to do |format|
+      format.html
+      format.text
+      format.csv do
+        books = Book.generate_csv(@books)
+        render plain: books
+      end
+    end
+
+
   end
-
-end
 
 end
