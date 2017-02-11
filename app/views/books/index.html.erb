@@ -1,0 +1,7 @@
+<h1> Bookz </h1>
+
+<ul>
+  <% @books.each do |book|%>
+    <li><%= book.title %> | <%= book.author %> | <%= book.already_read? %> </li>
+  <% end %>
+</ul>
